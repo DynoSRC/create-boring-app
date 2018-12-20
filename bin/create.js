@@ -16,11 +16,25 @@ module.exports = function(args) {
       const dirPath = path.normalize(process.cwd() + '/' + dir);
       if (!fs.existsSync(dirPath)) {
         fs.mkdirpSync(dirPath);
-        console.log('Created directory ' + dirPath);
+        console.log('created directory ' + dirPath);
       }
 
-      console.log('Running boring generator in director ' + dirPath);
-      childProcess.spawnSync('npx', ['boringbits@latest', 'generate'], {
+      fs.mkdirpSync(dirPath + '/node_modules');
+      console.log('installing boring into ' + dirPath);
+      // Installing boring as a dep inside the target folder saves
+      // a double install.  If we did not do this `npx boringbits generate`
+      // would technially work, but npx would install boringbits in a
+      // temporary place first, THEN run the generator, THEN still need to
+      // run the install to actually put boring into app.  Doing
+      // this step upfront eliminates the need for users to have to
+      // run `npm install` after generating.
+      childProcess.spawnSync('npm', ['install', 'boringbits@latest'], {
+        stdio: [process.stdin, process.stdout, process.stderr],
+        cwd: dirPath,
+      });
+
+      console.log('Running boring generator in directory ' + dirPath);
+      childProcess.spawnSync('npx', ['boring', 'generate'], {
         stdio: [process.stdin, process.stdout, process.stderr],
         cwd: dirPath,
       });
