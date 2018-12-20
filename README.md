@@ -2,7 +2,7 @@
 
 A CLI tool to create an exciting boring app!
 
-##Usage
+## Usage
 
 ```
 npm install create-boring-app -g
