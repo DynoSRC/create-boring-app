@@ -1,0 +1,15 @@
+{
+  "name": "create-boring-app",
+  "version": "1.0.0",
+  "description": "Create an exciting boring application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "cba": "./bin/create-boring-app-cli.js",
+    "create-boring-app": "./bin/create-boring-app-cli.js"
+  },
+  "author": "Ryan Stevens",
+  "license": "MIT"
+}
