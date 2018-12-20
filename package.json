@@ -1,6 +1,6 @@
 {
   "name": "create-boring-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create an exciting boring application",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,8 @@
     "create-boring-app": "./bin/create-boring-app-cli.js"
   },
   "author": "Ryan Stevens",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^12.0.5"
+  }
 }
