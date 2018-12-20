@@ -1,6 +1,6 @@
 {
   "name": "create-boring-app",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create an exciting boring application",
   "main": "index.js",
   "scripts": {
